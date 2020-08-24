@@ -1,0 +1,80 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="FullScreenApp.controller.View1">
+	<App id="idAppControl">
+		<pages>
+			<Page title="Satınalma Giriş Sayfası">
+				<content>
+					<VBox direction="Column" id="vbox0" justifyContent="Center" width="100%">
+						<items>
+							<HBox alignItems="Center" class="sapUiTinyMarginTop">
+								<Label text="Satınalma Numarası" width="200px" class="sapUiTinyMarginBegin"/>
+								<Input value="{viewModel>/PoNumber}" width="auto" class="sapUiTinyMarginBegin"/>
+							</HBox>
+							<HBox alignItems="Center" >
+								<Label text="Satıcı No" width="200px" class="sapUiTinyMarginBegin"/>
+								<Input value="{viewModel>/Lifnr}" width="auto" class="sapUiTinyMarginBegin"/>
+							</HBox>
+							<HBox alignItems="Center" >
+								<Label text="Para Birimi" width="200px" class="sapUiTinyMarginBegin"/>
+								<Input value="{viewModel>/Waers}" width="auto" class="sapUiTinyMarginBegin"/>
+							</HBox>
+							<HBox alignItems="Center" >
+								<Label text="Şirket kodu" width="200px" class="sapUiTinyMarginBegin"/>
+								<Input value="{viewModel>/Bukrs}" width="auto" class="sapUiTinyMarginBegin"/>
+							</HBox>
+							<HBox alignItems="Center" >
+								<Label xmlns="sap.m" text=" " width="210px"/>
+								<Button icon="sap-icon://add" text="Ekle" press="onAddPurchaseOrder" width="170px" class="sapUiTinyMarginBegin"></Button>
+							</HBox>
+							<HBox alignItems="Center" >
+								<Label xmlns="sap.m" text=" " width="210px"/>
+								<Button icon="sap-icon://delete" text="Sil" press="onDeletePurchaseOrder" width="170px" class="sapUiTinyMarginBegin"></Button>
+							</HBox>
+						</items>
+					</VBox>
+					<Table id="table1" items="{/PurchaseOrderSet}" noDataText="Veri Bulunamadı!">
+						<headerToolbar>
+							<Toolbar>
+								<content>
+									<Title text="Satınalmalar" level="H2"/>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column id="column0">
+								<header>
+									<Label id="label0" text="Satınalma Numarası"/>
+								</header>
+							</Column>
+							<Column id="column1">
+								<header>
+									<Label id="label1" text="Satıcı No"/>
+								</header>
+							</Column>
+							<Column id="column2">
+								<header>
+									<Label id="label2" text="Para Birimi"/>
+								</header>
+							</Column>
+							<Column id="column3">
+								<header>
+									<Label id="label3" text="Şirket Kodu"/>
+								</header>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem counter="0" id="item1">
+								<cells>
+									<Text id="text0" maxLines="0" text="{Ponumber}"/>
+									<Text id="text1" maxLines="0" text="{Lifnr}"/>
+									<Text id="text2" maxLines="0" text="{Waers}"/>
+									<Text id="text3" maxLines="0" text="{Bukrs}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
