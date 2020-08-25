@@ -53,7 +53,7 @@ sap.ui.define([
 			mParameters.error = function (oError) {
 
 				MessageBox.error(
-					"Kayıt Başarısız......", {
+					"Kayıt Başarısız......Gürhan ekledi :))", {
 						styleClass: bCompact ? "sapUiSizeCompact" : ""
 					}
 				);
