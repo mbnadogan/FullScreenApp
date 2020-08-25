@@ -1,2 +1,2 @@
 # FullScreenApp
-Purchase Record Creation page
+Sapui5 Purchase Record Creation page
