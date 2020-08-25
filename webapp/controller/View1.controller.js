@@ -20,12 +20,12 @@ sap.ui.define([
 			});
 
 			this._oView.setModel(oViewModel, "viewModel");
-			this._oTable = this._oView.byId("table1");
+			this._oTable = this._oView.byId("table0");
 
 		},
 
 		onAddPurchaseOrder: function () {
-
+			debugger;
 			var oModel = this._oView.getModel(),
 				sPath = "/PurchaseOrderSet",
 				oData = {},
@@ -36,14 +36,15 @@ sap.ui.define([
 			oData.Lifnr = this._oView.getModel("viewModel").getProperty("/Lifnr");
 			oData.Waers = this._oView.getModel("viewModel").getProperty("/Waers");
 			oData.Bukrs = this._oView.getModel("viewModel").getProperty("/Bukrs");
-
+			
+			
 			mParameters.success = function (oData2, oResponse) {
 
 				var oBinding = this._oTable.getBinding("items");
 				oBinding.filter([]);
 
 				MessageBox.success(
-					"Kayıt Başarılı", {
+					"Kayıt Başarılı......", {
 						styleClass: bCompact ? "sapUiSizeCompact" : ""
 					}
 				);
@@ -52,7 +53,7 @@ sap.ui.define([
 			mParameters.error = function (oError) {
 
 				MessageBox.error(
-					"Kayıt Başarısız", {
+					"Kayıt Başarısız......", {
 						styleClass: bCompact ? "sapUiSizeCompact" : ""
 					}
 				);
@@ -60,45 +61,46 @@ sap.ui.define([
 
 			oModel.create(sPath, oData, mParameters);
 
-		},
-
-		onDeletePurchaseOrder: function () {
-
-			var oModel = this._oView.getModel(),
-				sPath = "/PurchaseOrderSet",
-				oData = {},
-				mParameters = {},
-				bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
-
-			oData.Ponumber = this._oView.getModel("viewModel").getProperty("/PoNumber");
-			oData.Lifnr = this._oView.getModel("viewModel").getProperty("/Lifnr");
-			oData.Waers = this._oView.getModel("viewModel").getProperty("/Waers");
-			oData.Bukrs = this._oView.getModel("viewModel").getProperty("/Bukrs");
-
-			mParameters.success = function (oData2, oResponse) {
-
-				var oBinding = this._oTable.getBinding("items");
-				oBinding.filter([]);
-
-				MessageBox.success(
-					"Silme İşlemi Başarılı", {
-						styleClass: bCompact ? "sapUiSizeCompact" : ""
-					}
-				);
-			}.bind(this);
-
-			mParameters.error = function (oError) {
-
-				MessageBox.error(
-					"Silme İşlemi Başarısız", {
-						styleClass: bCompact ? "sapUiSizeCompact" : ""
-					}
-				);
-			};
-
-			oModel.delete(sPath, oData, mParameters);
-
 		}
+
+		// onDeletePurchaseOrder: function () {
+		// 	debugger;
+		// 	var oModel = this._oView.getModel(),
+		// 		sPath = "/PurchaseOrderSet",
+		// 		oData = {},
+		// 		mParameters = {},
+		// 		bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
+
+		// 	oData.Ponumber = this._oView.getModel("viewModel").getProperty("/PoNumber");
+		// 	oData.Lifnr = this._oView.getModel("viewModel").getProperty("/Lifnr");
+		// 	oData.Waers = this._oView.getModel("viewModel").getProperty("/Waers");
+		// 	oData.Bukrs = this._oView.getModel("viewModel").getProperty("/Bukrs");
+	
+
+		// 	mParameters.success = function (oData2, oResponse) {
+
+		// 		var oBinding = this._oTable.getBinding("items");
+		// 		oBinding.filter([]);
+
+		// 		MessageBox.success(
+		// 			"Silme İşlemi Başarılı........", {
+		// 				styleClass: bCompact ? "sapUiSizeCompact" : ""
+		// 			}
+		// 		);
+		// 	}.bind(this);
+
+		// 	mParameters.error = function (oError) {
+
+		// 		MessageBox.error(
+		// 			"Silme İşlemi Başarısız.......", {
+		// 				styleClass: bCompact ? "sapUiSizeCompact" : ""
+		// 			}
+		// 		);
+		// 	};
+
+		// 	oModel.delete(sPath, oData, mParameters);
+
+		// }
 
 	});
 
